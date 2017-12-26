@@ -190,6 +190,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -232,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/明月在他乡/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/Matlab-做三坐标图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingkai Zhang">
@@ -251,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/26/明月在他乡/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2017/12/26/Matlab-做三坐标图/" itemprop="url">Matlab 做三坐标图</a></h1>
         
 
         <div class="post-meta">
@@ -263,7 +283,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T21:47:37+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T22:45:38+08:00">
                 2017-12-26
               </time>
             
@@ -273,6 +293,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -303,7 +345,11 @@
       
         
           
-            
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用<em>axes</em>命令做一个新的坐标轴的方法来得到。</p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">figure</span><br><span class="line">[h,hL1,hL2]=plotyy(t,Qm-flow,t,level);</span><br><span class="line"><span class="comment">% set(gca,'fontsize',10)</span></span><br><span class="line">h(<span class="number">1</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">2</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">1</span>).YLim=[<span class="number">-500</span> <span class="number">1500</span>];</span><br><span class="line">h(<span class="number">1</span>).YTick=<span class="built_in">linspace</span>(<span class="number">-500</span>,<span class="number">1500</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YTick=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YLim=[<span class="number">0</span> <span class="number">4</span>];</span><br><span class="line">h(<span class="number">1</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line">h(<span class="number">2</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line"><span class="comment">% set(h(1),'YLim',[-200 600],'YTick',linspace(-200,600,5))</span></span><br><span class="line"><span class="comment">% set(h(2),'YDir','reverse', 'YLim',[0 20],'YTick',linspace(0,20,5))</span></span><br><span class="line">set(hL1,<span class="string">'Color'</span>,[<span class="number">0.3</span> <span class="number">0.3</span> <span class="number">0.3</span>],<span class="string">'LineStyle'</span>,<span class="string">'-'</span>)</span><br><span class="line">set(hL2,<span class="string">'Color'</span>,[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>],<span class="string">'LineStyle'</span>,<span class="string">'--'</span>)</span><br><span class="line"><span class="comment">% set(hL2,'FaceColor',[0.6 0.6 0.6],'EdgeColor',[0.6 0.6 0.6],'BarWidth',0.1,'LineWidth',0.2)</span></span><br><span class="line">xlabel(<span class="string">'时间 (d)'</span>)</span><br><span class="line">ylabel(h(<span class="number">1</span>),<span class="string">'流量差值 (m^3/h)'</span>)</span><br><span class="line">ylabel(h(<span class="number">2</span>),<span class="string">'液位 (m)'</span>)</span><br><span class="line"></span><br><span class="line">legend(<span class="string">'流量差值'</span>,<span class="string">'液位'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% grid on</span></span><br><span class="line"></span><br><span class="line">set(gcf,<span class="string">'Position'</span>,[<span class="number">300</span> <span class="number">300</span> <span class="number">350</span> <span class="number">220</span>]);</span><br><span class="line">set(gca,<span class="string">'Position'</span>,[<span class="number">.20</span> <span class="number">.22</span> <span class="number">.65</span> <span class="number">.74</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax1=gca;</span><br><span class="line">ax1_pos = ax1.Position; <span class="comment">% position of first axes</span></span><br><span class="line">ax2 = axes(<span class="string">'Position'</span>,ax1_pos,<span class="string">'Color'</span>,<span class="string">'none'</span>,...</span><br><span class="line">    <span class="string">'visible'</span>,<span class="string">'off'</span>,<span class="string">'XLim'</span>,[<span class="number">0</span> <span class="number">8</span>],<span class="string">'Ylim'</span>,[<span class="number">0</span> <span class="number">20</span>],<span class="string">'YDir'</span>,<span class="string">'reverse'</span>,...</span><br><span class="line">    <span class="string">'NextPlot'</span>,<span class="string">'add'</span>);</span><br><span class="line">bar(ax2,t,rain1,<span class="string">'FaceColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>],<span class="string">'EdgeColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>])</span><br><span class="line">legend(ax2,<span class="string">'降雨'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h2><p><img src="/images/三坐标图.png" alt="三坐标图"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>此例中并没有将第三个坐标轴显示出来，而是将<em>axes</em>的<em>visible</em>属性设置设置为<em>off</em>。如果需要显示，更改其属性为<em>on</em>，并且对坐标轴位置设置一段偏移即可。</p>
+
           
         
       
@@ -471,6 +517,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/12/22/明月在他乡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingkai Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mingkai's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/12/22/明月在他乡/" itemprop="url">明月在他乡</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-12-22T01:04:00+08:00">
+                2014-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/散文随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">散文随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>来英已有月余。在这里生活已逐渐适应。认识了一些新的朋友。<br>转眼已是圣诞。商店里也摆放出了圣诞树。市中心大街悬挂了”Merry Christmas”的彩灯，在夜晚缤纷的闪烁。<br>白天出去散步，走在市中心的大街上，行人熙熙攘攘，也能看到有人在街边表演，拉小提琴的，弹吉他的，吹萨克斯的等等，总之节日的气氛浓厚。</p>
+<p>今天天气尚可。这里常常下雨，常常是“朝来寒雨晚来风”。但大多是细密的小雨，落在脸上会感觉细密轻柔。如此细润，以至于这雨更像是氤氲在空气中的水珠。<br>有时候也会大雨伴着大风。这时候打伞也无济于事，常常刚撑开伞就被风吹翻了过来。所以干脆不如“莫听穿林打叶声，何妨吟啸且徐行”。<br>但天气晴朗的时候，真的是晴空万里。淡蓝的天空飘着洁白的云朵，远眺过去，可以清楚的看到远处山坡上层次错落的三角形屋顶的红色房屋。<br>我每天去学校的路上会路过一片草地，天气晴朗的时候，会有几个小松鼠跑出来，在草地上吃掉下来的松果。还有白色的鸥鸟，在草地上闲庭信步。<br>傍晚的时候，白色云朵变成了淡红色的轻纱，如羽衣霓裳般铺在天空。太阳落在山的那一边的时候，映出金色的光芒，和着这紫色霞雾，便会觉得那是一个金光明庄严世界。</p>
+<p>我有时候晚上出来散步，如果白天是晴天，晚上便会看到繁星点点，有时会看到一轮明月。皓月当空，人间寂静，银辉遍洒。<br>偶尔我会想起北京校园里的月光。如我在清华园里常常晚上在操场散步时看到的月光。一样的清辉皎洁。一样的静静的抚慰着人世间。</p>
+<p>风月无古今，情怀自浅深。<br>这月亮千百年未变。这风千百年一样的吹拂。然而每个人的心境在不断变化。<br>何时能让它安顿下来，找到归家的感觉？</p>
+<p>今年的明月陪我在异国他乡了。<br>南怀瑾先生有一首诗“明月在他乡，他乡是故乡”。可是故乡又在何处。大多数人不过是“人生到处萍漂泊”。<br>何时能让自己的身心安顿下来，是真正找到避风的港湾，是真正找到生命的归命处，真正找到故乡了。<br>这大概是崔颢登黄鹤楼“日暮乡关何处是，烟波江上使人愁”的感慨吧。</p>
+<p>我用尽所有的努力与祈祷，想好好过完这人生。<br>找到身心的大安顿处，找到安身立命之所在，在没有烦恼忧愁中，在与一切和睦相处中，祥和平静的生活。</p>
+<p>我当馨香祈祷。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/06/23/晚唐余晖-录唐宣宗诗两首/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -513,6 +707,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -543,8 +759,8 @@
         
           
             <p>瀑布联句<br>千岩万壑不辞劳，远看方知出处高。（黄檗禅师）<br>溪涧岂能留得住，终归大海作波涛。（唐玄宗李忱）</p>
-<p>百丈山<br>大雄真迹枕危峦，梵宇层楼耸万般。日月每从肩上过， 山河长在掌中看。<br>仙峰不间三春秀，灵境何时六月寒。更有上方人罕到，暮钟朝磬碧云端。<br>苏东坡途经浙江盐官的安国寺，追忆李忱的这段传奇人生，留下的一首诗。<br>已将世界等微尘，空里浮花梦里身。</p>
-<p>岂为龙颜更分别，只应天眼识天人。</p>
+<p>百丈山<br>大雄真迹枕危峦，梵宇层楼耸万般。日月每从肩上过， 山河长在掌中看。<br>仙峰不间三春秀，灵境何时六月寒。更有上方人罕到，暮钟朝磬碧云端。</p>
+<p>苏东坡途经浙江盐官的安国寺，追忆李忱的这段传奇人生，留下的一首诗。<br>已将世界等微尘，空里浮花梦里身。<br>岂为龙颜更分别，只应天眼识天人。</p>
 
           
         
@@ -634,6 +850,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/书评影评/" itemprop="url" rel="index">
+                    <span itemprop="name">书评影评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -747,22 +985,31 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">2</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
