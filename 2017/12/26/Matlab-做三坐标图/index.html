@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。 程序12345678910111213141516171819202122232425262728293031323334353637figure[h">
+<meta name="description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
 <meta name="keywords" content="Matlab,三坐标图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab 做三坐标图">
 <meta property="og:url" content="http://yoursite.com/2017/12/26/Matlab-做三坐标图/index.html">
 <meta property="og:site_name" content="Mingkai&#39;s blog">
-<meta property="og:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。 程序12345678910111213141516171819202122232425262728293031323334353637figure[h">
+<meta property="og:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/三坐标图.png">
-<meta property="og:updated_time" content="2017-12-26T15:15:40.654Z">
+<meta property="og:updated_time" content="2017-12-27T08:01:09.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab 做三坐标图">
-<meta name="twitter:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。 程序12345678910111213141516171819202122232425262728293031323334353637figure[h">
+<meta name="twitter:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
 <meta name="twitter:image" content="http://yoursite.com/images/三坐标图.png">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Matlab 做三坐标图 | Mingkai's blog</title>
+  <title>Matlab 做三坐标图 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -345,6 +345,7 @@
 
       
         <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用<em>axes</em>命令做一个新的坐标轴的方法来得到。</p>
+<a id="more"></a>
 <h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">figure</span><br><span class="line">[h,hL1,hL2]=plotyy(t,Qm-flow,t,level);</span><br><span class="line"><span class="comment">% set(gca,'fontsize',10)</span></span><br><span class="line">h(<span class="number">1</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">2</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">1</span>).YLim=[<span class="number">-500</span> <span class="number">1500</span>];</span><br><span class="line">h(<span class="number">1</span>).YTick=<span class="built_in">linspace</span>(<span class="number">-500</span>,<span class="number">1500</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YTick=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YLim=[<span class="number">0</span> <span class="number">4</span>];</span><br><span class="line">h(<span class="number">1</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line">h(<span class="number">2</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line"><span class="comment">% set(h(1),'YLim',[-200 600],'YTick',linspace(-200,600,5))</span></span><br><span class="line"><span class="comment">% set(h(2),'YDir','reverse', 'YLim',[0 20],'YTick',linspace(0,20,5))</span></span><br><span class="line">set(hL1,<span class="string">'Color'</span>,[<span class="number">0.3</span> <span class="number">0.3</span> <span class="number">0.3</span>],<span class="string">'LineStyle'</span>,<span class="string">'-'</span>)</span><br><span class="line">set(hL2,<span class="string">'Color'</span>,[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>],<span class="string">'LineStyle'</span>,<span class="string">'--'</span>)</span><br><span class="line"><span class="comment">% set(hL2,'FaceColor',[0.6 0.6 0.6],'EdgeColor',[0.6 0.6 0.6],'BarWidth',0.1,'LineWidth',0.2)</span></span><br><span class="line">xlabel(<span class="string">'时间 (d)'</span>)</span><br><span class="line">ylabel(h(<span class="number">1</span>),<span class="string">'流量差值 (m^3/h)'</span>)</span><br><span class="line">ylabel(h(<span class="number">2</span>),<span class="string">'液位 (m)'</span>)</span><br><span class="line"></span><br><span class="line">legend(<span class="string">'流量差值'</span>,<span class="string">'液位'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% grid on</span></span><br><span class="line"></span><br><span class="line">set(gcf,<span class="string">'Position'</span>,[<span class="number">300</span> <span class="number">300</span> <span class="number">350</span> <span class="number">220</span>]);</span><br><span class="line">set(gca,<span class="string">'Position'</span>,[<span class="number">.20</span> <span class="number">.22</span> <span class="number">.65</span> <span class="number">.74</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax1=gca;</span><br><span class="line">ax1_pos = ax1.Position; <span class="comment">% position of first axes</span></span><br><span class="line">ax2 = axes(<span class="string">'Position'</span>,ax1_pos,<span class="string">'Color'</span>,<span class="string">'none'</span>,...</span><br><span class="line">    <span class="string">'visible'</span>,<span class="string">'off'</span>,<span class="string">'XLim'</span>,[<span class="number">0</span> <span class="number">8</span>],<span class="string">'Ylim'</span>,[<span class="number">0</span> <span class="number">20</span>],<span class="string">'YDir'</span>,<span class="string">'reverse'</span>,...</span><br><span class="line">    <span class="string">'NextPlot'</span>,<span class="string">'add'</span>);</span><br><span class="line">bar(ax2,t,rain1,<span class="string">'FaceColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>],<span class="string">'EdgeColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>])</span><br><span class="line">legend(ax2,<span class="string">'降雨'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h2><p><img src="/images/三坐标图.png" alt="三坐标图"></p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>此例中并没有将第三个坐标轴显示出来，而是将<em>axes</em>的<em>visible</em>属性设置设置为<em>off</em>。如果需要显示，更改其属性为<em>on</em>，并且对坐标轴位置设置一段偏移即可。</p>
@@ -389,6 +390,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/27/SWMM中水文模型解析/" rel="prev" title="SWMM 水文模型解析">
+                SWMM 水文模型解析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -476,7 +481,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -487,7 +492,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -722,6 +727,45 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 
