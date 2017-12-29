@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SWMM,水文模型,地表径流,地下水传输,霍顿公式," />
+  <meta name="keywords" content="Matlab,三坐标图," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="引言近几年，海绵城市在国内如火如荼的开展。海绵城市建设中需要用模型进行模拟，SWMM 是常用的模拟软件。 EPA发布SWMM，到现在已经是5.0版本，并且专门出了三本书，介绍其内部的模型构造。这三本书分别为水文模型、水力模型、水质模型。本文试对其水文模型进行提炼总结。">
-<meta name="keywords" content="SWMM,水文模型,地表径流,地下水传输,霍顿公式">
+<meta name="description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
+<meta name="keywords" content="Matlab,三坐标图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SWMM 水文模型解析">
-<meta property="og:url" content="http://yoursite.com/2017/12/27/SWMM中水文模型解析/index.html">
+<meta property="og:title" content="Matlab 做三坐标图">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/Matlab-做三坐标图/index.html">
 <meta property="og:site_name" content="Mingkai&#39;s blog">
-<meta property="og:description" content="引言近几年，海绵城市在国内如火如荼的开展。海绵城市建设中需要用模型进行模拟，SWMM 是常用的模拟软件。 EPA发布SWMM，到现在已经是5.0版本，并且专门出了三本书，介绍其内部的模型构造。这三本书分别为水文模型、水力模型、水质模型。本文试对其水文模型进行提炼总结。">
+<meta property="og:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/两层土壤模型.png">
-<meta property="og:updated_time" content="2017-12-27T08:00:01.056Z">
+<meta property="og:image" content="http://yoursite.com/images/三坐标图.png">
+<meta property="og:updated_time" content="2017-12-29T14:04:33.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SWMM 水文模型解析">
-<meta name="twitter:description" content="引言近几年，海绵城市在国内如火如荼的开展。海绵城市建设中需要用模型进行模拟，SWMM 是常用的模拟软件。 EPA发布SWMM，到现在已经是5.0版本，并且专门出了三本书，介绍其内部的模型构造。这三本书分别为水文模型、水力模型、水质模型。本文试对其水文模型进行提炼总结。">
-<meta name="twitter:image" content="http://yoursite.com/images/两层土壤模型.png">
+<meta name="twitter:title" content="Matlab 做三坐标图">
+<meta name="twitter:description" content="问题matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用axes命令做一个新的坐标轴的方法来得到。">
+<meta name="twitter:image" content="http://yoursite.com/images/三坐标图.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/27/SWMM中水文模型解析/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/11/Matlab-做三坐标图/"/>
 
 
 
 
 
-  <title>SWMM 水文模型解析 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Matlab 做三坐标图 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/SWMM中水文模型解析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/Matlab-做三坐标图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingkai Zhang">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SWMM 水文模型解析</h1>
+          <h1 class="post-title" itemprop="name headline">Matlab 做三坐标图</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T08:35:04+08:00">
-                2017-12-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T16:11:38+08:00">
+                2016-11-11
               </time>
             
 
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程设计/" itemprop="url" rel="index">
-                    <span itemprop="name">工程设计</span>
+                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技巧</span>
                   </a>
                 </span>
 
@@ -344,38 +344,11 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>近几年，海绵城市在国内如火如荼的开展。海绵城市建设中需要用模型进行模拟，SWMM 是常用的模拟软件。 EPA发布SWMM，到现在已经是5.0版本，并且专门出了三本书，介绍其内部的模型构造。这三本书分别为水文模型、水力模型、水质模型。本文试对其水文模型进行提炼总结。</p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>matlab 做三坐标图算一个小技巧，写论文期间需要将降雨、流量、液位三个变量放在一张图里，而这三个变量的数量级及单位各不相同，因此需要三个坐标来表示。经过一番搜索及试验，通过先做一个双坐标图，然后再用<em>axes</em>命令做一个新的坐标轴的方法来得到。</p>
 <a id="more"></a>
-<h2 id="地表径流"><a href="#地表径流" class="headerlink" title="地表径流"></a>地表径流</h2><p>地表径流可以通过非线性水库计算</p>
-<script type="math/tex; mode=display">\frac{\partial d}{\partial t}=i-e-f-q</script><p>式中，d表示汇水区单位面积上的积水高度，i为单位面积上降雨/融雪的速率，e表示表面蒸发速率，f为入渗到土壤中的速率，q表示从汇水区流出的径流速率。其中径流速率q可以根据曼宁公式计算</p>
-<script type="math/tex; mode=display">Q=\frac{1.49}{n} S^{1/2}R_x^{2/3}A_x</script><p>式中，n为汇水区的粗糙系数，S为汇水区的平均坡度，Rx为水力半径，Ax为径流流过汇水区的长度。</p>
-<h2 id="下渗过程"><a href="#下渗过程" class="headerlink" title="下渗过程"></a>下渗过程</h2><p>地表径流向地下的入渗速率则可以通过霍顿公式、修正霍顿公式、Green-Ampt公式以及曲线数值法等方法来计算。其中，霍顿公式为</p>
-<script type="math/tex; mode=display">f_p = f_{\infty} + (f_0-f_{\infty})e^{-k_d t}</script><p>式中， fp 表示向土壤中的下渗速率， $f_{\infty}$ 表示 $t=\infty$ 时的下渗速率，f0 为初始时刻 t=0 时的下渗速率，kd 为衰减系数，t 为降雨开始的时刻。</p>
-<h2 id="地下水向管道的入渗过程"><a href="#地下水向管道的入渗过程" class="headerlink" title="地下水向管道的入渗过程"></a>地下水向管道的入渗过程</h2><p>地下水向管道中的入渗通过类似Dawdy和O’Donnell的两层土壤模型计算。这个模型由上层的不饱和区和下层的饱和区构成。如下图所示</p>
-<p><img src="/images/两层土壤模型.png" alt="两层土壤模型"></p>
-<p>上层不饱和区的模型为</p>
-<script type="math/tex; mode=display">
-\left\{
-\begin{array}{l}
-\frac{\partial V_u}{\partial t} = f_{UZ}\\
-f_{UZ} = f_I - f_{EU} - f_U
-\end{array}
-\right.</script><p>式中，Vu是上层不饱和单位面积的含水量，fUZ是上层区的净流量。fI为从地表向地下补给的速率，fEU为上层区的蒸发速率，fU为上层区向下层去的下渗速率。下层饱和区的模型</p>
-<script type="math/tex; mode=display">
-\left\{
-\begin{array}{l}
-\frac{\partial V_L}{\partial t} = f_{LZ}\\
-f_{LZ} = f_U - f_{EL} - f_L - f_G
-\end{array}
-\right.</script><p>式中，VL为下层饱和区单位面积的含水量，fLZ为下层区的净流量，fEL为下层区的蒸发速率，fL为下层区向深层地下水的下渗速率，fG为下层区的水向管道中入渗的速率。经过变形，联立，得到</p>
-<script type="math/tex; mode=display">
-\left\{
-\begin{array}{l}
-\frac{\partial d_L}{\partial t} = \frac{f_{LZ}}{\left( \phi  - \theta \right)}\\
-\frac{\partial \theta }{\partial t} = \frac{\theta {f_{LZ} + \left( \phi  - \theta  \right)f_{UZ}}}{\left( \phi  - \theta \right)\left( E_G - E_B - d_L \right)}
-\end{array}
-\right.</script><p>式中，dL为下层饱和区深度，$\theta$ 为上层不饱和区的含水率，$\phi$为下层饱和区的含水率，EG为不饱和区顶部高程，EB为饱和区底部高程。</p>
-<h2 id="联立"><a href="#联立" class="headerlink" title="联立"></a>联立</h2><p>如上，因为以上三个过程相互关联、相互影响，需将以上三个过程联立，在每个时间步长上，联合数值求解，可以得到模拟范围内地表径流、下渗速率、地下水入渗的过程。事实上，地下水入渗又与管道内传输过程相关，因此还需考虑水力学模型（圣维南方程），综合求解才可以得到更为准确结果。</p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">figure</span><br><span class="line">[h,hL1,hL2]=plotyy(t,Qm-flow,t,level);</span><br><span class="line"><span class="comment">% set(gca,'fontsize',10)</span></span><br><span class="line">h(<span class="number">1</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">2</span>).XLim=[<span class="number">0</span> <span class="number">8</span>];</span><br><span class="line">h(<span class="number">1</span>).YLim=[<span class="number">-500</span> <span class="number">1500</span>];</span><br><span class="line">h(<span class="number">1</span>).YTick=<span class="built_in">linspace</span>(<span class="number">-500</span>,<span class="number">1500</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YTick=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">h(<span class="number">2</span>).YLim=[<span class="number">0</span> <span class="number">4</span>];</span><br><span class="line">h(<span class="number">1</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line">h(<span class="number">2</span>).YColor=[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>];</span><br><span class="line"><span class="comment">% set(h(1),'YLim',[-200 600],'YTick',linspace(-200,600,5))</span></span><br><span class="line"><span class="comment">% set(h(2),'YDir','reverse', 'YLim',[0 20],'YTick',linspace(0,20,5))</span></span><br><span class="line">set(hL1,<span class="string">'Color'</span>,[<span class="number">0.3</span> <span class="number">0.3</span> <span class="number">0.3</span>],<span class="string">'LineStyle'</span>,<span class="string">'-'</span>)</span><br><span class="line">set(hL2,<span class="string">'Color'</span>,[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>],<span class="string">'LineStyle'</span>,<span class="string">'--'</span>)</span><br><span class="line"><span class="comment">% set(hL2,'FaceColor',[0.6 0.6 0.6],'EdgeColor',[0.6 0.6 0.6],'BarWidth',0.1,'LineWidth',0.2)</span></span><br><span class="line">xlabel(<span class="string">'时间 (d)'</span>)</span><br><span class="line">ylabel(h(<span class="number">1</span>),<span class="string">'流量差值 (m^3/h)'</span>)</span><br><span class="line">ylabel(h(<span class="number">2</span>),<span class="string">'液位 (m)'</span>)</span><br><span class="line"></span><br><span class="line">legend(<span class="string">'流量差值'</span>,<span class="string">'液位'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% grid on</span></span><br><span class="line"></span><br><span class="line">set(gcf,<span class="string">'Position'</span>,[<span class="number">300</span> <span class="number">300</span> <span class="number">350</span> <span class="number">220</span>]);</span><br><span class="line">set(gca,<span class="string">'Position'</span>,[<span class="number">.20</span> <span class="number">.22</span> <span class="number">.65</span> <span class="number">.74</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax1=gca;</span><br><span class="line">ax1_pos = ax1.Position; <span class="comment">% position of first axes</span></span><br><span class="line">ax2 = axes(<span class="string">'Position'</span>,ax1_pos,<span class="string">'Color'</span>,<span class="string">'none'</span>,...</span><br><span class="line">    <span class="string">'visible'</span>,<span class="string">'off'</span>,<span class="string">'XLim'</span>,[<span class="number">0</span> <span class="number">8</span>],<span class="string">'Ylim'</span>,[<span class="number">0</span> <span class="number">20</span>],<span class="string">'YDir'</span>,<span class="string">'reverse'</span>,...</span><br><span class="line">    <span class="string">'NextPlot'</span>,<span class="string">'add'</span>);</span><br><span class="line">bar(ax2,t,rain1,<span class="string">'FaceColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>],<span class="string">'EdgeColor'</span>,[<span class="number">.6</span> <span class="number">.6</span> <span class="number">.6</span>])</span><br><span class="line">legend(ax2,<span class="string">'降雨'</span>)</span><br><span class="line">legend(<span class="string">'boxoff'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h2><p><img src="/images/三坐标图.png" alt="三坐标图"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>此例中并没有将第三个坐标轴显示出来，而是将<em>axes</em>的<em>visible</em>属性设置设置为<em>off</em>。如果需要显示，更改其属性为<em>on</em>，并且对坐标轴位置设置一段偏移即可。</p>
 
       
     </div>
@@ -393,15 +366,9 @@ f_{LZ} = f_U - f_{EL} - f_L - f_G
       
         <div class="post-tags">
           
-            <a href="/tags/SWMM/" rel="tag"># SWMM</a>
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
           
-            <a href="/tags/水文模型/" rel="tag"># 水文模型</a>
-          
-            <a href="/tags/地表径流/" rel="tag"># 地表径流</a>
-          
-            <a href="/tags/地下水传输/" rel="tag"># 地下水传输</a>
-          
-            <a href="/tags/霍顿公式/" rel="tag"># 霍顿公式</a>
+            <a href="/tags/三坐标图/" rel="tag"># 三坐标图</a>
           
         </div>
       
@@ -414,8 +381,8 @@ f_{LZ} = f_U - f_{EL} - f_L - f_G
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/26/Matlab-做三坐标图/" rel="next" title="Matlab 做三坐标图">
-                <i class="fa fa-chevron-left"></i> Matlab 做三坐标图
+              <a href="/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/" rel="next" title="使用ARIMA模型预测污水厂流量水质变化">
+                <i class="fa fa-chevron-left"></i> 使用ARIMA模型预测污水厂流量水质变化
               </a>
             
           </div>
@@ -424,8 +391,8 @@ f_{LZ} = f_U - f_{EL} - f_L - f_G
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/27/使用ARIMA模型预测污水厂流量水质变化/" rel="prev" title="使用ARIMA模型预测污水厂流量水质变化">
-                使用ARIMA模型预测污水厂流量水质变化 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/15/SWMM中水文模型解析/" rel="prev" title="SWMM 水文模型解析">
+                SWMM 水文模型解析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -560,7 +527,7 @@ f_{LZ} = f_U - f_{EL} - f_L - f_G
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地表径流"><span class="nav-number">2.</span> <span class="nav-text">地表径流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下渗过程"><span class="nav-number">3.</span> <span class="nav-text">下渗过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地下水向管道的入渗过程"><span class="nav-number">4.</span> <span class="nav-text">地下水向管道的入渗过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联立"><span class="nav-number">5.</span> <span class="nav-text">联立</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">2.</span> <span class="nav-text">程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图示"><span class="nav-number">3.</span> <span class="nav-text">图示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>

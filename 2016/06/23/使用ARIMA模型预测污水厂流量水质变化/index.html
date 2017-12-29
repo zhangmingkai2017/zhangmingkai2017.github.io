@@ -83,14 +83,15 @@
 <meta name="keywords" content="ARIMA 模型,污水厂,MATLAB,时间序列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用ARIMA模型预测污水厂流量水质变化">
-<meta property="og:url" content="http://yoursite.com/2017/12/27/使用ARIMA模型预测污水厂流量水质变化/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/index.html">
 <meta property="og:site_name" content="Mingkai&#39;s blog">
 <meta property="og:description" content="ARIMA方法介绍自回归模型(autoregressive model, AR)许多时间序列存在自相关性，因此可以通过过去的观测值来预测当前的观测值。自回归模型(AR)由过去的观测值 {y_{t - 1}},{y_{t - 2}}, \cdots ,{y_{t - p}} 的函数来模拟当前值 $y_t$ 的条件均值。依赖于过去p个观测值的AR模型称为p阶的AR模型，记做AR(p), 公式为 {y_">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/污水厂流量.png">
 <meta property="og:image" content="http://yoursite.com/images/ACF-PACF.png">
 <meta property="og:image" content="http://yoursite.com/images/ARIMA_flow.png">
-<meta property="og:updated_time" content="2017-12-29T09:52:24.812Z">
+<meta property="og:image" content="http://yoursite.com/images/ARIMA_quality.png">
+<meta property="og:updated_time" content="2017-12-29T13:56:01.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ARIMA模型预测污水厂流量水质变化">
 <meta name="twitter:description" content="ARIMA方法介绍自回归模型(autoregressive model, AR)许多时间序列存在自相关性，因此可以通过过去的观测值来预测当前的观测值。自回归模型(AR)由过去的观测值 {y_{t - 1}},{y_{t - 2}}, \cdots ,{y_{t - p}} 的函数来模拟当前值 $y_t$ 的条件均值。依赖于过去p个观测值的AR模型称为p阶的AR模型，记做AR(p), 公式为 {y_">
@@ -124,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/27/使用ARIMA模型预测污水厂流量水质变化/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/"/>
 
 
 
@@ -257,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/使用ARIMA模型预测污水厂流量水质变化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingkai Zhang">
@@ -286,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T16:19:16+08:00">
-                2017-12-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-23T16:19:16+08:00">
+                2016-06-23
               </time>
             
 
@@ -358,16 +359,17 @@
 <script type="math/tex; mode=display">\phi (L){(1 - L)^D}{y_t} = c + \theta (L){\varepsilon_t}</script><h3 id="季节整合自回归移动平均模型-seasonal-ARIMA-model-SARIMA"><a href="#季节整合自回归移动平均模型-seasonal-ARIMA-model-SARIMA" class="headerlink" title="季节整合自回归移动平均模型(seasonal ARIMA model, SARIMA)"></a>季节整合自回归移动平均模型(seasonal ARIMA model, SARIMA)</h3><p>许多时间序列呈现出周期性的变化，比如连续多年观测中的季节性变化。为了考虑这种季节周期性影响，发展出SARIMA模型。对于周期为s的时间序列，可以记做ARIMA(p,D,q)×(ps,Ds,qs)s, 公式为</p>
 <script type="math/tex; mode=display">\phi (L)\Phi (L){(1 - L)^D}{(1 - L^s)^{D_s}} {y_t} = c + \theta (L)\Theta (L){\varepsilon_t}</script><p>式中，<script type="math/tex">\Phi (L) = 1 - \Phi_{p_1} L^{p_1} - \Phi_{p_2} L^{p_2} -  \cdots  - \Phi_{p_s} L^{p_s}</script> 表示 <script type="math/tex">{p_s}</script> 阶的季节自回归多项式。</p>
 <p><script type="math/tex">\Theta (L) = 1 + {\Theta_{q_1}}{L^{q_1}} + {\Theta_{q_2}}{L^{q_2}} +  \cdots  - {\Theta_{q_s}}{L^{q_s}}</script> 表示 ${q_s}$ 阶的季节移动平均多项式。<br>一般的，对于季节项有 ${p_1} = s,{p_2} = 2s, \cdots ,{p_s} = {c_p}s$ 和 ${q_1} = s,{q_2} = 2s, \cdots ,{q_s} = {c_q}s$ , ${c_p}$ 和 ${c_q}$ 为正整数。</p>
-<h2 id="污水厂流量与水质的ARMA模型预测"><a href="#污水厂流量与水质的ARMA模型预测" class="headerlink" title="污水厂流量与水质的ARMA模型预测"></a>污水厂流量与水质的ARMA模型预测</h2><h3 id="污水厂流量"><a href="#污水厂流量" class="headerlink" title="污水厂流量"></a>污水厂流量</h3><p>图为某污水厂一段时间的时进水流量数据。旱时流量在8000-9000 m3/h,并成周期性波动。降雨后流量显著增加，最大达到1.2万m3/h，并随着入流入渗量的减少，逐渐回落到正常旱时流量。拟通过SARIMA模型来表征这段时间序列，并进行预测。</p>
+<h2 id="污水厂流量与水质的ARMA模型预测"><a href="#污水厂流量与水质的ARMA模型预测" class="headerlink" title="污水厂流量与水质的ARMA模型预测"></a>污水厂流量与水质的ARMA模型预测</h2><h3 id="污水厂流量动态变化时间序列模型"><a href="#污水厂流量动态变化时间序列模型" class="headerlink" title="污水厂流量动态变化时间序列模型"></a>污水厂流量动态变化时间序列模型</h3><p>图为某污水厂一段时间的时进水流量数据。旱时流量在8000-9000 m3/h,并成周期性波动。降雨后流量显著增加，最大达到1.2万m3/h，并随着入流入渗量的减少，逐渐回落到正常旱时流量。拟通过SARIMA模型来表征这段时间序列，并进行预测。</p>
 <p><img src="/images/污水厂流量.png" alt="污水厂流量"></p>
-<p>因为污水厂进水流量明显存在以一天24小时为周期的波动，这种波动相当于时间序列模型中的“季节影响”。因为采样频率为1/24,故周期为24，因此首先通过季节差分项 <script type="math/tex">(1 - {L^{24}}){y_t} = {y_t} - {y_{t - 24}}</script> 去除其季节效应;此外因为流量受到降雨影响后会出现升高而后降低的变化，相当于时间序列模型中的“趋势影响”，因此需要非季节一阶差分项 <script type="math/tex">(1 - L){y_t} = {y_t} - {y_{t - 1}}</script> 来消除趋势。</p>
+<p>污水厂进水流量明显存在以一天24小时为周期的波动，这种波动相当于时间序列模型中的“季节影响”。采样频率为1/24,故周期为24，因此首先通过季节差分项 <script type="math/tex">(1 - {L^{24}}){y_t} = {y_t} - {y_{t - 24}}</script> 去除其季节效应;此外因为流量受到降雨影响后会出现升高而后降低的变化，相当于时间序列模型中的“趋势影响”，因此需要非季节一阶差分项 <script type="math/tex">(1 - L){y_t} = {y_t} - {y_{t - 1}}</script> 来消除趋势。</p>
 <p>对差分后序列采用ADF方法进行平稳性检验，结果表示差分后的时间序列平稳，因此可以对差分后的序列建立时间序列模型。观查其ACF和PACF，如图所示。</p>
 <p><img src="/images/ACF-PACF.png" alt="ACF"></p>
 <p>季节项部分的ACF在lag 24处截断，而PACF在lag 24, lag 48, lag 72 处呈现拖尾，因此季节项可建立SMA(1)模型。通过调整模型阶数，并根据AIC准则，非季节项可以建立MA(3)模型。因此最终对原时间序列(污水厂的进水流量)建立 <script type="math/tex">ARIMA\left( {0,1,3} \right) \times {(0,1,1)_ {24}}</script> 模型。<br>图为模型的预测结果。从结果可以看出，模型基本可以反映污水厂进水流量的变化，可以作为污水厂进水流量动态预报依据。</p>
 <p><img src="/images/ARIMA_flow.png" alt="污水厂进水流量ARIMA模型模拟"></p>
-<h3 id="污水厂水质动态变化的时间序列模型"><a href="#污水厂水质动态变化的时间序列模型" class="headerlink" title="污水厂水质动态变化的时间序列模型"></a>污水厂水质动态变化的时间序列模型</h3><p>依同样方法，对污水厂进水的水质模型建立时间序列模型。污水厂水质监测的时间间隔为2小时，因此周期s为24/2=12，调整ARIMA(p,D,q)×(ps,Ds,qs)s结构，结果如下。<br>电导率<br>氨氮<br>磷酸盐磷<br>COD<br>对水质模型采用 模型。模型中SMA(2)表示当前的水质与前两天相同时刻的残差项相关。图 2 17芦村污水厂进水水质的SARIMA 模型模拟结果。从图中可以看出，随着降雨事件的发生，进水的污染物浓度因为雨水的稀释作用降低，而后由逐渐升高恢复至正常旱时波动。同时，水质的波动并不如流量呈现出完整的每天周期变化的规律性。这种随机性变化，如果只通过确定性的模型描述，将会很难以表征真实情况。而通过随机过程中采用的时间序列分析方法，SARIMA模型，则可以较为真实的反应实际的变化情况。降雨造成的浓度下降而后上升的趋势可以通过ARIMA中的一阶差分项消除，而每日中的周期性变化，可以通过季节差分消除。因此SARIMA 可以用于污水厂进水的流量与水质的动态预测。根据历史的进水数据，得到合适的模型中的参数。</p>
+<h3 id="污水厂水质动态变化时间序列模型"><a href="#污水厂水质动态变化时间序列模型" class="headerlink" title="污水厂水质动态变化时间序列模型"></a>污水厂水质动态变化时间序列模型</h3><p>依同样方法，对污水厂进水的水质模型建立时间序列模型。调整ARIMA(p,D,q)×(ps,Ds,qs)s结构，进行模拟，结果如下。</p>
+<p><img src="/images/ARIMA_quality.png" alt="污水厂进水水质ARIMA模型模拟"></p>
+<p>随着降雨事件的发生，进水的污染物浓度因为雨水的稀释作用降低，而后由逐渐升高恢复至正常旱时波动。同时，水质的波动并不如流量呈现出完整的每天周期变化的规律性。这种随机性变化，如果只通过确定性的模型描述，将会很难以表征真实情况。而通过随机过程中采用的时间序列分析方法则可以较为真实的反应实际的变化情况。降雨造成的浓度下降而后上升的趋势可以通过ARIMA中的一阶差分项消除，而每日中的周期性变化，可以通过季节差分消除。因此SARIMA 可以用于污水厂进水的流量与水质的动态预测。</p>
 <p>关于ARIMA的研究，如果考虑降雨等外部输入(exogenous)对模型的影响，则可以建立ARIMAX模型。另外,ARIMA 模型假设残差为独立分布。如果模型的残差不能满足独立分布，则要考虑残差的异方差性，用自回归条件异方差模型(generalized autoregressive conditional heteroscedasticity model, GARCH)对残差进行修正。</p>
-<p>图 2 12 芦村污水厂进水水质的SARIMA 模型模拟结果</p>
 
       
     </div>
@@ -404,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/27/SWMM中水文模型解析/" rel="next" title="SWMM 水文模型解析">
-                <i class="fa fa-chevron-left"></i> SWMM 水文模型解析
+              <a href="/2014/12/22/明月在他乡/" rel="next" title="明月在他乡">
+                <i class="fa fa-chevron-left"></i> 明月在他乡
               </a>
             
           </div>
@@ -413,6 +415,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/11/Matlab-做三坐标图/" rel="prev" title="Matlab 做三坐标图">
+                Matlab 做三坐标图 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -546,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ARIMA方法介绍"><span class="nav-number">1.</span> <span class="nav-text">ARIMA方法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自回归模型-autoregressive-model-AR"><span class="nav-number">1.1.</span> <span class="nav-text">自回归模型(autoregressive model, AR)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动平均模型-moving-average-model-MA"><span class="nav-number">1.2.</span> <span class="nav-text">移动平均模型(moving average model, MA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自回归移动平均模型-autoregressive-moving-average-ARMA"><span class="nav-number">1.3.</span> <span class="nav-text">自回归移动平均模型(autoregressive moving average, ARMA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合自回归移动平均模型-autoregressive-integrated-moving-average-ARIMA"><span class="nav-number">1.4.</span> <span class="nav-text">整合自回归移动平均模型(autoregressive integrated moving average, ARIMA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#季节整合自回归移动平均模型-seasonal-ARIMA-model-SARIMA"><span class="nav-number">1.5.</span> <span class="nav-text">季节整合自回归移动平均模型(seasonal ARIMA model, SARIMA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#污水厂流量与水质的ARMA模型预测"><span class="nav-number">2.</span> <span class="nav-text">污水厂流量与水质的ARMA模型预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#污水厂流量"><span class="nav-number">2.1.</span> <span class="nav-text">污水厂流量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#污水厂水质动态变化的时间序列模型"><span class="nav-number">2.2.</span> <span class="nav-text">污水厂水质动态变化的时间序列模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ARIMA方法介绍"><span class="nav-number">1.</span> <span class="nav-text">ARIMA方法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自回归模型-autoregressive-model-AR"><span class="nav-number">1.1.</span> <span class="nav-text">自回归模型(autoregressive model, AR)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动平均模型-moving-average-model-MA"><span class="nav-number">1.2.</span> <span class="nav-text">移动平均模型(moving average model, MA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自回归移动平均模型-autoregressive-moving-average-ARMA"><span class="nav-number">1.3.</span> <span class="nav-text">自回归移动平均模型(autoregressive moving average, ARMA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合自回归移动平均模型-autoregressive-integrated-moving-average-ARIMA"><span class="nav-number">1.4.</span> <span class="nav-text">整合自回归移动平均模型(autoregressive integrated moving average, ARIMA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#季节整合自回归移动平均模型-seasonal-ARIMA-model-SARIMA"><span class="nav-number">1.5.</span> <span class="nav-text">季节整合自回归移动平均模型(seasonal ARIMA model, SARIMA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#污水厂流量与水质的ARMA模型预测"><span class="nav-number">2.</span> <span class="nav-text">污水厂流量与水质的ARMA模型预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#污水厂流量动态变化时间序列模型"><span class="nav-number">2.1.</span> <span class="nav-text">污水厂流量动态变化时间序列模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#污水厂水质动态变化时间序列模型"><span class="nav-number">2.2.</span> <span class="nav-text">污水厂水质动态变化时间序列模型</span></a></li></ol></li></ol></div>
             
 
           </div>
