@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SOM,区域特征,污水管网," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SOM 神经网络介绍自组织映射网络(Self-Organizing Map, SOM)由Kohonen 与1990年提出，并受到不断的发展应用。SOM根据输入向量在输入空间的组合来对输入向量进行分类。SOM可以同时学习所训练的输入向量的分布和拓扑结构。SOM网络中的神经元根据一些拓扑函数进行初始的位置排列。常用的初始排列形式有网格状，六边形，和随机排列。神经元之间的距离根据神经元之间的物理位置通过">
+<meta name="keywords" content="SOM,区域特征,污水管网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="采用SOM神经网络进行管网区域特征分析">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/采用SOM神经网络进行管网区域特征分析/index.html">
+<meta property="og:site_name" content="Mingkai&#39;s blog">
+<meta property="og:description" content="SOM 神经网络介绍自组织映射网络(Self-Organizing Map, SOM)由Kohonen 与1990年提出，并受到不断的发展应用。SOM根据输入向量在输入空间的组合来对输入向量进行分类。SOM可以同时学习所训练的输入向量的分布和拓扑结构。SOM网络中的神经元根据一些拓扑函数进行初始的位置排列。常用的初始排列形式有网格状，六边形，和随机排列。神经元之间的距离根据神经元之间的物理位置通过">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/SOM_s.png">
+<meta property="og:updated_time" content="2017-12-30T09:32:24.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="采用SOM神经网络进行管网区域特征分析">
+<meta name="twitter:description" content="SOM 神经网络介绍自组织映射网络(Self-Organizing Map, SOM)由Kohonen 与1990年提出，并受到不断的发展应用。SOM根据输入向量在输入空间的组合来对输入向量进行分类。SOM可以同时学习所训练的输入向量的分布和拓扑结构。SOM网络中的神经元根据一些拓扑函数进行初始的位置排列。常用的初始排列形式有网格状，六边形，和随机排列。神经元之间的距离根据神经元之间的物理位置通过">
+<meta name="twitter:image" content="http://yoursite.com/images/SOM_s.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/15/采用SOM神经网络进行管网区域特征分析/"/>
+
+
+
+
+
+  <title>采用SOM神经网络进行管网区域特征分析 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mingkai's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep moving</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/采用SOM神经网络进行管网区域特征分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingkai Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mingkai's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">采用SOM神经网络进行管网区域特征分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T08:35:04+08:00">
+                2016-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程设计/" itemprop="url" rel="index">
+                    <span itemprop="name">工程设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SOM-神经网络介绍"><a href="#SOM-神经网络介绍" class="headerlink" title="SOM 神经网络介绍"></a>SOM 神经网络介绍</h2><p>自组织映射网络(Self-Organizing Map, SOM)由Kohonen 与1990年提出，并受到不断的发展应用。SOM根据输入向量在输入空间的组合来对输入向量进行分类。SOM可以同时学习所训练的输入向量的分布和拓扑结构。SOM网络中的神经元根据一些拓扑函数进行初始的位置排列。常用的初始排列形式有网格状，六边形，和随机排列。神经元之间的距离根据神经元之间的物理位置通过一定的距离函数进行计算。有四种常见的距离函数，欧氏距离，盒形距离，连接距离，曼哈顿距离。其中连接距离是最常用的距离。SOM网络的体系结构如图所示。<br><a id="more"></a></p>
+<p><img src="/images/SOM_s.png" alt="SOM网络体系结构"></p>
+<p>图中，$S^1$,  ${\bf n}^1$, ${\bf a}^1$ 的上标表示所在的神经层。因为SOM为单层的神经网络，所以上标为1。${\bf I \bf W}^{1,1}$ 上标中第2个1表示来源的神经层，上标中的第一个1表示要输出到的神经层。<br>图中R表示输入向量的元素个数， $S^1$ 表示神经层中的神经元个数。$\bf p$ 为长度为R的输入向量，$\bf a^1$ 为输出向量。 $\boxed{\lVert{\mathrm{ndist}} \rVert}$ 模块按下式计算权重矩阵 ${\bf I \bf W}^{1,1}$ 与输入向量 $\bf p$ 之间的欧氏距离的负数，并输出有 $S^1$ 个元素的向量 ${\bf n}^1$。</p>
+<script type="math/tex; mode=display">n_i^1=-\lVert {}_i {\bf IW}^{1,1}-\bf{p} \rVert</script><p>式中，i表示第i个神经元，不同的 $n_i^1$ 构成了向量 ${\bf{n}}^1 = { n_i^1,i = 1, \cdots ,{S^1}} $。<br>模块 $\boxed{\bf{c}}$ 表示竞争转移函数，其寻找 ${\bf{n}}^1$ 中最大的元素，并输出长度为$S^1$，除了最大元素所对应位置为1以外其余元素全为0的向量 ${\bf{a}}^1$。${\bf n}^1$ 最大的元素所对应的神经元即为获胜神经元。<br>SOM网络每个迭代步长识别出一个获胜神经元 $i^\star$，利用Kohonen准则，更新这个获胜神经元邻域范围内的神经元的权重向量。按照下式更新权重</p>
+<script type="math/tex; mode=display">{}_i{\bf{I}\bf{W}}^{1,1}(q) = {}_i{\bf{I} \bf{W}}^{1,1} (q - 1) + \alpha ({\bf{p}} (q) - {}_i{\bf{I} \bf{W}}^{1,1} (q - 1))</script><p>对于一个特定的输入向量 ，获胜神经元及其邻近的神经元都会向输入向量移动。最终获胜的神经元在下一步迭代中，对于相似的输入向量则更容易胜出，但对于差别较大的输入向量则会是很小的可能会胜出。最终，随着不断地更新权重，神经层中的这些神经元将会分类聚集到相似的输入向量之中，从而实现输入向量的聚类。</p>
+<h2 id="MATLAB程序"><a href="#MATLAB程序" class="headerlink" title="MATLAB程序"></a>MATLAB程序</h2><h2 id="识别结果"><a href="#识别结果" class="headerlink" title="识别结果"></a>识别结果</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SOM/" rel="tag"># SOM</a>
+          
+            <a href="/tags/区域特征/" rel="tag"># 区域特征</a>
+          
+            <a href="/tags/污水管网/" rel="tag"># 污水管网</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/15/采用模式识别神经网络进行管网污水溯源分析/" rel="next" title="采用模式识别神经网络进行污水溯源分析">
+                <i class="fa fa-chevron-left"></i> 采用模式识别神经网络进行污水溯源分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/11/Matlab-做三坐标图/" rel="prev" title="Matlab 做三坐标图">
+                Matlab 做三坐标图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mingkai Zhang</p>
+              <p class="site-description motion-element" itemprop="description">stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SOM-神经网络介绍"><span class="nav-number">1.</span> <span class="nav-text">SOM 神经网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB程序"><span class="nav-number">2.</span> <span class="nav-text">MATLAB程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#识别结果"><span class="nav-number">3.</span> <span class="nav-text">识别结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mingkai Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
