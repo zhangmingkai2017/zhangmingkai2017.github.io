@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="英国,过年," />
+  <meta name="keywords" content="Matlab,continue," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="农历2015年的新年。辞旧迎新。普天同庆。对于我来说，生平第一次，没有在家过年。中午的时候给爸妈打电话，我妈的声音一度哽咽。往年都是四个人一块吃饺子看春晚，如今是三个人在家里，会更思念不在家的这个人吧。">
-<meta name="keywords" content="英国,过年">
+<meta name="description" content="问题MATLAB里的循环 if, while 命令，有时需结合 break, continue 等命令来使用。 continue 主要使不满足 if 条件下程序继续运行。。试看此例。">
+<meta name="keywords" content="Matlab,continue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="又一年">
-<meta property="og:url" content="http://zhangmingkai.com/2015/02/19/又一年/index.html">
+<meta property="og:title" content="Matlab之continue用法">
+<meta property="og:url" content="http://zhangmingkai.com/2016/10/30/MATLAB之continue用法/index.html">
 <meta property="og:site_name" content="Mingkai&#39;s blog">
-<meta property="og:description" content="农历2015年的新年。辞旧迎新。普天同庆。对于我来说，生平第一次，没有在家过年。中午的时候给爸妈打电话，我妈的声音一度哽咽。往年都是四个人一块吃饺子看春晚，如今是三个人在家里，会更思念不在家的这个人吧。">
+<meta property="og:description" content="问题MATLAB里的循环 if, while 命令，有时需结合 break, continue 等命令来使用。 continue 主要使不满足 if 条件下程序继续运行。。试看此例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-07T13:34:50.800Z">
+<meta property="og:updated_time" content="2018-01-10T15:35:37.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="又一年">
-<meta name="twitter:description" content="农历2015年的新年。辞旧迎新。普天同庆。对于我来说，生平第一次，没有在家过年。中午的时候给爸妈打电话，我妈的声音一度哽咽。往年都是四个人一块吃饺子看春晚，如今是三个人在家里，会更思念不在家的这个人吧。">
+<meta name="twitter:title" content="Matlab之continue用法">
+<meta name="twitter:description" content="问题MATLAB里的循环 if, while 命令，有时需结合 break, continue 等命令来使用。 continue 主要使不满足 if 条件下程序继续运行。。试看此例。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhangmingkai.com/2015/02/19/又一年/"/>
+  <link rel="canonical" href="http://zhangmingkai.com/2016/10/30/MATLAB之continue用法/"/>
 
 
 
 
 
-  <title>又一年 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Matlab之continue用法 | Mingkai's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangmingkai.com/2015/02/19/又一年/">
+    <link itemprop="mainEntityOfPage" href="http://zhangmingkai.com/2016/10/30/MATLAB之continue用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingkai Zhang">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">又一年</h1>
+          <h1 class="post-title" itemprop="name headline">Matlab之continue用法</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-19T00:05:00+08:00">
-                2015-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-30T12:00:00+08:00">
+                2016-10-30
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/散文随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">散文随笔</span>
+                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技巧</span>
                   </a>
                 </span>
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/02/19/又一年/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2015/02/19/又一年/" itemprop="commentsCount"></span>
+                <a href="/2016/10/30/MATLAB之continue用法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2016/10/30/MATLAB之continue用法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -352,12 +352,9 @@
       
 
       
-        <p>农历2015年的新年。辞旧迎新。普天同庆。<br>对于我来说，生平第一次，没有在家过年。<br>中午的时候给爸妈打电话，我妈的声音一度哽咽。<br>往年都是四个人一块吃饺子看春晚，如今是三个人在家里，会更思念不在家的这个人吧。</p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>MATLAB里的循环 <em>if</em>, <em>while</em> 命令，有时需结合 <em>break</em>, <em>continue</em> 等命令来使用。<br> <em>continue</em> 主要使不满足 <em>if</em> 条件下程序继续运行。。<br>试看此例。</p>
 <a id="more"></a>
-<p>中午和几个关系不错的留学生在这边访问的张老师家里一块包饺子，每个人再做一两个菜，再有一眼没一眼的看着YouTube上面的春晚直播。<br>不知不觉就包到了下午四点。这是国内的午夜12点，春晚里开始了新年的钟声倒计时。<br>每年的这个时候，我爸都会到院子里，点燃早早准备好的“一万头火鞭”，让这鞭炮声跨过旧年的年尾，新年的开头。<br>这时整个村子里，鞭炮的声音此起彼伏，还有打到天空的烟花四处散开，不时照亮夜空。<br>空气中弥漫着鞭炮的味道，那是我从记忆中起，都一直期盼与熟悉的年的味道。</p>
-<p>每年大年三十，从中午开始，家家户户就开始写对联，贴对联。<br>下午四五点钟，家族里的男性，都一块到祖宗的墓地，祭拜祖宗。<br>晚上爸妈和我，弟弟团员一桌，吃着饺子看着春晚。<br>大年初一，早上要“起五更”，早早的起了床，向祖宗的牌位，供奉的神灵，灶王爷，把门将军，一一叩头，烧一把香，祈愿各方保佑新的一年里一切平安顺利。<br>然后端一碗饺子，从家里出发，给家族里的长辈拜年。路上碰到一样去拜年的，相互打个招呼，问声新年好。<br>这时天都还未亮，四处依然是此起彼伏的鞭炮声，抬头就是明亮的星星，路上都是红色的鞭炮的碎片，有时候下雪过年雪还未消，寒冬清冷的空气，充满着年的味道。<br>上午到祠堂里，村子里所有同姓的男性，都会到祠堂里祭拜祖宗。仪式都很简单，向祖宗三鞠躬，发一些糖果，放些鞭炮。祠堂里会挂出家谱，从家族里的第一个祖宗，一直到新近增添的男丁，都会在家谱里。<br>“慎终追远，民德归厚矣”。儒家的文化传统，在很多地方消失，然而在我们这个小村子里，却还依稀保留着它的风貌。</p>
-<p>今年不知家里贴了什么对联。<br>去年的对联，我自己编了几副。<br>一副“大丈夫胸怀天下，好男儿志在四方”，一副“积善家必有余庆，惜福人永得天年”，一副“心宽天地广，心仁日月长”。<br>不是自己创造，将古人言借来，算是一种鼓励与对未来的期许吧。<br>只是这人生有时候的确艰难困苦。<br>然而不管怎样，新年都是辞旧迎新的。愿所有的不如意，都留在过去的旧年里，所有的美好，都在新年里发生吧。<br>人生总是要有希望，信仰与理想。不能稀里糊涂过了这一生。</p>
-<p>新的一年里，风雨无阻，勇往直前。</p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">a=dir;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="built_in">size</span>(a,<span class="number">1</span>)</span><br><span class="line">    [status,sheets] = xlsfinfo(a(<span class="built_in">j</span>).name);</span><br><span class="line">    <span class="keyword">if</span> ~<span class="built_in">isempty</span>(status)</span><br><span class="line">        [num,txt]=xlsread(a(<span class="built_in">j</span>).name,<span class="string">'五年一遇'</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    m=<span class="built_in">size</span>(num,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:m</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isnan</span>(num(<span class="built_in">i</span>,<span class="number">10</span>)) || num(<span class="built_in">i</span>,<span class="number">10</span>)==<span class="number">9</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num(<span class="built_in">i</span>,<span class="number">10</span>)==<span class="number">10</span>;</span><br><span class="line">            t1=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        L=num(<span class="built_in">i</span>,<span class="number">3</span>);</span><br><span class="line">        F=num(<span class="built_in">i</span>,<span class="number">7</span>);</span><br><span class="line">        R=num(<span class="built_in">i</span>,<span class="number">19</span>);</span><br><span class="line">        A=num(<span class="built_in">i</span>,<span class="number">17</span>);</span><br><span class="line">        n=num(<span class="built_in">i</span>,<span class="number">15</span>);</span><br><span class="line">        <span class="comment">% i_h=num(2,21);</span></span><br><span class="line">        i0=<span class="number">10</span>;</span><br><span class="line">        i_h=fsolve(@(i_h) myfun_30y(i_h,F,A,t1,n,R,L),i0); <span class="comment">% 1a, 5a, 30a</span></span><br><span class="line">        i_store(<span class="built_in">i</span>,<span class="number">1</span>)=i_h;</span><br><span class="line">        v=<span class="number">1</span>/n*R^(<span class="number">2</span>/<span class="number">3</span>)*(i_h/<span class="number">1000</span>)^(<span class="number">1</span>/<span class="number">2</span>);</span><br><span class="line">        t2=L/v/<span class="number">60</span>;</span><br><span class="line">        sum_t=t1+t2;</span><br><span class="line">        t1=sum_t;</span><br><span class="line">        q(<span class="built_in">i</span>,<span class="number">1</span>)=<span class="number">2219.597</span>/(sum_t+<span class="number">9.657</span>)^<span class="number">0.514</span>;</span><br><span class="line">        Q(<span class="built_in">i</span>,<span class="number">1</span>)=<span class="number">0.75</span>*q(<span class="built_in">i</span>,<span class="number">1</span>)*F/<span class="number">1000</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    i_store(i_store==<span class="number">0</span>)=<span class="built_in">nan</span>;</span><br><span class="line">    q(q==<span class="number">0</span>)=<span class="built_in">nan</span>;</span><br><span class="line">    Q(Q==<span class="number">0</span>)=<span class="built_in">nan</span>;</span><br><span class="line">    xlswrite([<span class="string">'E:\水力坡度_30a_'</span> a(j).name],[ q,Q,i_store])</span><br><span class="line">    clear q Q i_store</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -375,9 +372,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/英国/" rel="tag"># 英国</a>
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
           
-            <a href="/tags/过年/" rel="tag"># 过年</a>
+            <a href="/tags/continue/" rel="tag"># continue</a>
           
         </div>
       
@@ -390,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/" rel="prev" title="使用ARIMA模型预测污水厂流量水质变化">
-                <i class="fa fa-chevron-left"></i> 使用ARIMA模型预测污水厂流量水质变化
+              <a href="/2016/11/11/Matlab-做三坐标图/" rel="prev" title="Matlab 做三坐标图">
+                <i class="fa fa-chevron-left"></i> Matlab 做三坐标图
               </a>
             
           </div>
@@ -400,8 +397,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/12/22/明月在他乡/" rel="next" title="明月在他乡">
-                明月在他乡 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/29/Matlab对excel进行操作/" rel="next" title="Matlab对excel进行操作">
+                Matlab对excel进行操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -461,8 +458,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -524,6 +530,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">2.</span> <span class="nav-text">程序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
