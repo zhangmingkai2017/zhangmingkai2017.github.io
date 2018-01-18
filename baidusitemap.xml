@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://zhangmingkai.com/2018/01/18/%E6%97%A0%E9%97%AE%E8%A5%BF%E4%B8%9C/</loc>
+    <lastmod>2018-01-18T12:22:32.024Z</lastmod>
+    <data>
+        <display>
+        <title>无问西东</title>
+        <pubTime>2018-01-18T10:47:00.000Z</pubTime>
+        
+        <tag>无问西东</tag>
+         
+        <tag>清华</tag>
+         
+        <tag>电影</tag>
+         
+         
+           
+             
+              <breadCrumb title="书评影评" url="http://zhangmingkai.com/categories/%E4%B9%A6%E8%AF%84%E5%BD%B1%E8%AF%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhangmingkai.com/2018/01/07/%E5%81%B7%E5%BE%97%E6%B5%AE%E7%94%9F%E5%8D%8A%E6%97%A5%E9%97%B2/</loc>
     <lastmod>2018-01-16T11:57:27.633Z</lastmod>
     <data>
@@ -147,9 +171,9 @@
         <title>驴得水</title>
         <pubTime>2016-07-08T21:34:00.000Z</pubTime>
         
-        <tag>话剧</tag>
-         
         <tag>电影</tag>
+         
+        <tag>话剧</tag>
          
         <tag>影评</tag>
          
@@ -385,11 +409,11 @@
         <title>采用SOM神经网络进行管网区域特征分析</title>
         <pubTime>2016-08-15T00:35:04.000Z</pubTime>
         
+        <tag>污水管网</tag>
+         
         <tag>SOM</tag>
          
         <tag>区域特征</tag>
-         
-        <tag>污水管网</tag>
          
          
            
@@ -409,11 +433,11 @@
         <title>采用模式识别神经网络进行污水溯源分析</title>
         <pubTime>2016-07-15T00:35:04.000Z</pubTime>
         
-        <tag>污水管网</tag>
-         
         <tag>模式识别</tag>
          
         <tag>溯源分析</tag>
+         
+        <tag>污水管网</tag>
          
          
            
