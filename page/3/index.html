@@ -252,6 +252,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangmingkai.com/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingkai Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mingkai's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/" itemprop="url">使用ARIMA模型预测污水厂流量水质变化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-23T16:19:16+08:00">
+                2016-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程设计/" itemprop="url" rel="index">
+                    <span itemprop="name">工程设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="ARIMA方法介绍"><a href="#ARIMA方法介绍" class="headerlink" title="ARIMA方法介绍"></a>ARIMA方法介绍</h2><h3 id="自回归模型-autoregressive-model-AR"><a href="#自回归模型-autoregressive-model-AR" class="headerlink" title="自回归模型(autoregressive model, AR)"></a>自回归模型(autoregressive model, AR)</h3><p>许多时间序列存在自相关性，因此可以通过过去的观测值来预测当前的观测值。自回归模型(AR)由过去的观测值 <script type="math/tex">{y_{t - 1}},{y_{t - 2}}, \cdots ,{y_{t - p}}</script> 的函数来模拟当前值 $y_t$ 的条件均值。依赖于过去p个观测值的AR模型称为p阶的AR模型，记做AR(p), 公式为</p>
+<script type="math/tex; mode=display">{y_t} = c + {\phi_1}{y_{t - 1}} +  \cdots  + {\phi_p}{y_{t - p}} + {\varepsilon_t}</script><p>式中，<script type="math/tex">{\varepsilon_t}</script> 是均值为0， 方差为 <script type="math/tex">\sigma_\varepsilon^2</script> 的独立误差项。<br>如果采用滞后算子 <script type="math/tex">{L^i}{y_t} = {y_{t - 1}}</script> ，定义p阶的滞后算子多项式 <script type="math/tex">\phi (L) = (1 - {\phi_1}L -  \cdots  - {\phi_p}{L^p})</script> ，则AR(p)模型可以记为</p>
+<script type="math/tex; mode=display">\phi (L){y_t} = c + {\varepsilon_t}</script>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/23/使用ARIMA模型预测污水厂流量水质变化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhangmingkai.com/2015/02/19/又一年/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1314,7 +1462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1336,7 +1484,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
