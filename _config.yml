@@ -7,7 +7,7 @@ title: Mingkai's Blog
 subtitle: ''
 description: '记录生活, 工作总结'
 keywords:
-author: Mingkai Zhang
+author: Michael Zhang
 language: zh-Hans
 timezone: ''
 
@@ -107,9 +107,11 @@ theme: butterfly
 deploy:
   type: ''
 
-# markdown 
-## Docs: https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8
-## Docs: https://katex.org/docs/options.html
-markdown:
-    plugins:
-      - '@renbaoshuo/markdown-it-katex'
+kramed:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
