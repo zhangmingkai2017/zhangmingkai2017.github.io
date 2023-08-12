@@ -106,3 +106,10 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# markdown 
+## Docs: https://butterfly.js.org/posts/ceeb73f/#Math-%E6%95%B8%E5%AD%B8
+## Docs: https://katex.org/docs/options.html
+markdown:
+    plugins:
+      - '@renbaoshuo/markdown-it-katex'
