@@ -20,7 +20,7 @@ mathjax: true
 式中，
 $\mu$——微生物比增长速度，$\rm d^{-1} $，即单位微生物量的增长速度$\displaystyle \frac{d X / d t}{X}$，$X$为微生物浓度；
 $\mu_{\max}$ ——在饱和浓度中微生物的最大比增长速度，$\rm d^{-1} $ ；
-$K_S$ ——饱和常数，$\rm mg/L $；
+$K_S$ ——饱和常数，其值为 $\displaystyle\mu=\frac{\mu_{max}}{2}$ 时的基质浓度， $\rm mg/L $；
 $S$ ——基质浓度，$\rm mg/L $。
 
 
