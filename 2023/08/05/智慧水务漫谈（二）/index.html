@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>智慧水务漫谈（二） | Mingkai's Blog</title><meta name="author" content="Michael Zhang"><meta name="copyright" content="Michael Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="谈谈智慧水务的“监测”部分。 “智慧水务”大的框架脱胎于物联网，而物联网的基本架构，包括“感知层”-“网络层”-(“平台层”)-“应用层”三层或四层架构体系。 “感知层”是物联网的基础，也是智慧水务的基础。 智慧水务中监测设备的选择与监测对象，监测目的密切相关。 在污水厂的智慧水务应用中，常见的有进水端、出水端的流量、COD、氨氮、总氮、总磷、SS的在线监测。这些监测一般基于国标方法，尤其是出水端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智慧水务漫谈（二）">
+<meta property="og:url" content="https://zhangmingkai2017.github.io/2023/08/05/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:site_name" content="Mingkai&#39;s Blog">
+<meta property="og:description" content="谈谈智慧水务的“监测”部分。 “智慧水务”大的框架脱胎于物联网，而物联网的基本架构，包括“感知层”-“网络层”-(“平台层”)-“应用层”三层或四层架构体系。 “感知层”是物联网的基础，也是智慧水务的基础。 智慧水务中监测设备的选择与监测对象，监测目的密切相关。 在污水厂的智慧水务应用中，常见的有进水端、出水端的流量、COD、氨氮、总氮、总磷、SS的在线监测。这些监测一般基于国标方法，尤其是出水端">
+<meta property="og:locale">
+<meta property="og:image" content="https://zhangmingkai2017.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2023-08-05T07:39:26.000Z">
+<meta property="article:modified_time" content="2026-04-16T14:03:55.628Z">
+<meta property="article:author" content="Michael Zhang">
+<meta property="article:tag" content="工作总结">
+<meta property="article:tag" content="监测">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhangmingkai2017.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "智慧水务漫谈（二）",
+  "url": "https://zhangmingkai2017.github.io/2023/08/05/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%BA%8C%EF%BC%89/",
+  "image": "https://zhangmingkai2017.github.io/img/butterfly-icon.png",
+  "datePublished": "2023-08-05T07:39:26.000Z",
+  "dateModified": "2026-04-16T14:03:55.628Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Michael Zhang",
+      "url": "https://zhangmingkai2017.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zhangmingkai2017.github.io/2023/08/05/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%BA%8C%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '智慧水务漫谈（二）',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Mingkai's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">智慧水务漫谈（二）</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">智慧水务漫谈（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-08-05T07:39:26.000Z" title="Created 2023-08-05 07:39:26">2023-08-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-16T14:03:55.628Z" title="Updated 2026-04-16 14:03:55">2026-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1/">智慧水务</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>谈谈智慧水务的“监测”部分。</p>
+<p>“智慧水务”大的框架脱胎于物联网，而物联网的基本架构，包括“感知层”-“网络层”-(“平台层”)-“应用层”三层或四层架构体系。</p>
+<p>“感知层”是物联网的基础，也是智慧水务的基础。</p>
+<p>智慧水务中监测设备的选择与监测对象，监测目的密切相关。</p>
+<p>在污水厂的智慧水务应用中，常见的有进水端、出水端的流量、COD、氨氮、总氮、总磷、SS的在线监测。这些监测一般基于国标方法，尤其是出水端的数据上传环保局作为监管依据。中间过程中，需要监测厌氧池OPR、缺氧池硝氮、好氧池溶解氧、污泥浓度、内回流流量、外回流流量、剩余污泥排放量、剩余污泥浓度，以及鼓风机电耗、PAC和乙酸钠的投加量等。这些一般基于光谱法、电极法等，能够获得实时数据。</p>
+<p>在排水管网的智慧水务应用中，一般要监测关键点位的流量、液位，工业园区的排口要监测电导率、COD、硝氮等水质指标，以及泵站的液位、泵的运行状态等等。</p>
+<p>水环境监测中，要监测地表水的常规指标，如COD、氨氮、总磷、总氮，在考核断面设置国标法的监测设备，在一些关键排口可以布置一些基于光谱法或电极法的快速免试剂监测设备。</p>
+<p>但现在在智慧水务中，“感知层”或者说监测设备，遇到的问题还很多。例如仪表维护量大，仪表数据通讯中断、仪表探头被生物膜覆盖、化学法的仪器需要消耗试剂及产生废液等等。所以不断完善监测设备，形成稳定可靠的“感知层”，还需要一段路要走。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://zhangmingkai2017.github.io">Michael Zhang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://zhangmingkai2017.github.io/2023/08/05/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%BA%8C%EF%BC%89/">https://zhangmingkai2017.github.io/2023/08/05/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%BA%8C%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结</a><a class="post-meta__tags" href="/tags/%E7%9B%91%E6%B5%8B/">监测</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/08/10/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88-%E4%B8%89/" title="智慧水务漫谈（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">智慧水务漫谈（三）</div></div><div class="info-2"><div class="info-item-1">谈谈智慧水务的数据传输与物联网通信协议。 智慧水务的监测系统构建完成以后，相当于完成了物联网体系的“感知层”，上面是传输层和平台层。 关于物联网的通信协议，这篇文章讲得比较清楚。 按网络四层协议分类，NB-IoT，LORA，WIFI，蓝牙，zigbee，4G，这几个都需要芯片模组支持（硬件支持），都属于物理层协议。而MQTT，COAP，HTTP，这些需要开发服务器，或者对接云平台厂商（软件支持），属于应用层协议。 按是否需要网关来分类，NB-IoT，4G（芯片可以直接连上移动，联通，电信运营商）属于直连，LORA，WIFI，zigbee（不能直接连上电信运营商，需要通过一个网关中转才能连上电信运营商）属于网关代理。蓝牙比较特别，是两个蓝牙设备之间互联 NB-IoT 低功耗，传输小数据，传输速度底，芯片模组和套餐便宜；4G 传输速度快和可以传输大的数据，但是功耗高，价格贵； wifi 功耗高，传输数据快，一个路由只能加入较少设备；zigbee 功耗低，传输数据慢，可以中继，一个zigbee网关可以加入成千上万的zigbee设备。 网络层传输协议包括TCP和UDP。TCP是一种面向连...</div></div></div></a><a class="pagination-related" href="/2023/08/01/%E5%8C%97%E4%BA%AC%E5%A4%A7%E9%9B%A8/" title="北京大雨"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">北京大雨</div></div><div class="info-2"><div class="info-item-1">北京近几日大雨，看天气预报，雨量已经超过了历史极值。 抖音上看到，房山，门头沟都淹了好多地方。 洪水冲着车子漂走，山洪夹着泥浆一泻而下。 周日从成都回北京，出来地铁口，路上的积水都好深，一脚下去，整个都泡在水里，鞋子全都湿了。 大自然的力量太大了。在这种力量下，才知道人类是多么渺小和脆弱。  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/07/31/%E6%99%BA%E6%85%A7%E6%B0%B4%E5%8A%A1%E6%BC%AB%E8%B0%88%EF%BC%88%E4%B8%80%EF%BC%89/" title="智慧水务漫谈（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-31</div><div class="info-item-2">智慧水务漫谈（一）</div></div><div class="info-2"><div class="info-item-1">从17年博士毕业到现在，工作了五六年时间，现在从事的算是和“智慧水务”相关的工作。 现在智慧水务也很热门，好像出来门，导出都在谈“智慧” 可是智慧水务究竟是什么，又包括哪些内容，每个人都自己的理解和看法。 我也总结总结自己读博士和工作期间的经验，写写“智慧水务”。 智慧水务， 从名字上看，就是将信息化、自动化这些，以及现在比较热的物联网、大数据、人工智能，应用在传统水务行业，用以解决水务中实际运行中的问题，提升管理水平。 从应用对象上来说，智慧水务包括了给水、排水、污水处理厂、水环境等等所有涉水的相关领域。从技术链条上讲，又包括监测-数据传输存储-模拟-预测预警-决策-部署等等方面。这些不同的维度又相互交叉，形成一个立体的组合。 智慧水务和数字孪生一般会联系在一起，但数字孪生的基础，还是要先把监测系统建立起来，以及还需要对系统建模支持。通过模拟分析，得到最优的调控策略或者运行方式。 智慧水务最终需要有一个展示的平台，这就是部署。这其中需要用到的又包括Arcgis, BIM, 服务器前后端开发等等技术栈。 后续将技术链条上的每一环都分开谈谈。  </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Michael Zhang</div><div class="author-info-description">记录生活, 工作总结</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/14/%E4%B8%8A%E6%B5%B7%E7%8E%AF%E5%8D%9A%E4%BC%9A/" title="上海环博会">上海环博会</a><time datetime="2026-04-14T14:01:17.000Z" title="Created 2026-04-14 14:01:17">2026-04-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/%E6%B7%B1%E5%9C%B3%E5%87%BA%E5%B7%AE/" title="深圳出差">深圳出差</a><time datetime="2024-09-07T12:19:38.000Z" title="Created 2024-09-07 12:19:38">2024-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/26/%E4%B8%8A%E6%B5%B7%E5%87%BA%E5%B7%AE/" title="上海出差">上海出差</a><time datetime="2024-04-26T06:06:07.000Z" title="Created 2024-04-26 06:06:07">2024-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/24/%E5%98%89%E5%85%B4%E4%B9%8B%E8%A1%8C/" title="嘉兴之行">嘉兴之行</a><time datetime="2024-04-24T22:39:26.000Z" title="Created 2024-04-24 22:39:26">2024-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/22/%E5%B9%BF%E8%A5%BF%E5%87%BA%E5%B7%AE/" title="广西出差">广西出差</a><time datetime="2024-04-22T17:28:59.000Z" title="Created 2024-04-22 17:28:59">2024-04-22</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Michael Zhang</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
