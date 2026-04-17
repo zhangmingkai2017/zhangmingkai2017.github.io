@@ -4,3 +4,11 @@ katex:
   # false 需要时加载，须在使用的Markdown Front-matter 加上 katex: true
   per_page: false
   hide_scrollbar: true
+
+# 侧边栏汉化
+aside:
+  card_author:
+    button:
+      text: 关注我
+  card_announcement:
+    content: 记录生活，工作总结
